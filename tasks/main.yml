@@ -1,10 +1,5 @@
 ---
 # tasks file for nutanix_role_prism_ntp
-  - name: Import grdavies.nutanix_prism_role_init_api role
-    include_role:
-      name: grdavies.nutanix_role_prism_init_api
-      public: yes
-
   - name: Get current NTP configuration
     uri:
       url: "{{ prism_api_v2 }}/cluster/ntp_servers"
