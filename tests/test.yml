@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: false
+  roles:
+    # - role: grdavies.nutanix_role_prism_init_api
+    - role: ../..
+  vars:
+    prism_ip: 10.38.185.37
+    prism_username: admin
+    prism_password: nx2Tech165!
+    prism_dns_server_list:
+      - 0.pool.ntp.org
+      - 1.pool.ntp.org
+      - 2.pool.ntp.org
+      - 3.pool.ntp.org

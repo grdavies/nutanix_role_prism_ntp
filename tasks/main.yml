@@ -1,0 +1,47 @@
+---
+# tasks file for nutanix_role_prism_ntp
+  - name: Import grdavies.nutanix_prism_role_init_api role
+    include_role:
+      name: grdavies.nutanix_role_prism_init_api
+      public: yes
+
+  - name: Get current NTP configuration
+    uri:
+      url: "{{ prism_api_v2 }}/cluster/ntp_servers"
+      method: GET
+      validate_certs: "{{ validate_certs }}"
+      body_format: json
+      headers:
+        Authorization: "{{ prism_api_auth }}"
+      return_content: yes
+    register: prism_ntp_current_config
+
+  - name: Remove configured NTP server if not provided
+    uri:
+      url: "{{ prism_api_v2 }}/cluster/ntp_servers/{{ item }}"
+      method: DELETE
+      validate_certs: "{{ validate_certs }}"
+      headers:
+        Authorization: "{{ prism_api_auth }}"
+      return_content: yes
+      status_code: 204
+    when:
+      - item not in prism_ntp_server_list
+    register: prism_ntp_remove_entry
+    loop: "{{ prism_ntp_current_config.json }}"
+
+  - name: Set NTP server
+    uri:
+      url: "{{ prism_api_v2 }}/cluster/ntp_servers"
+      method: POST
+      validate_certs: "{{ validate_certs }}"
+      body:
+        value: "{{ item }}"
+      body_format: json
+      headers:
+        Authorization: "{{ prism_api_auth }}"
+      return_content: yes
+      status_code: 200,201
+    register: prism_ntp_add_entry
+    loop: "{{ prism_ntp_server_list }}"
+    when: item not in prism_ntp_current_config.json
