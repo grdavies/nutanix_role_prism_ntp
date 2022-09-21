@@ -1,24 +1,21 @@
-Nutanix Role for Prism NTP server configuration
-=========
+# Nutanix Role for Prism NTP server configuration
 
 This Ansible role sets the NTP server configuration for Prism Element and Prism Central.
 
 
-Role Variables
---------------
+## Role Variables
 
 | Variable                 | Required | Default | Choices                                                                         | Comments                                                                                                                                           |
 |--------------------------|----------|---------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | validate_certs           | no       | no      |                                                                                 | Whether to check if Prism UI certificates are valid.                                                                                               |
 | prism_ntp_server_list    | yes      | []      |                                                                                 | Provide a list of NTP servers; ["0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org", "3.pool.ntp.org"].                                                                                 |
 
-Dependencies
-------------
+## Dependencies
 
 - grdavies.nutanix_role_prism_init_api
 
-Example Playbook
-----------------
+
+## Example Playbook
 
 ```
 - hosts: localhost
@@ -37,12 +34,10 @@ Example Playbook
 ```
 
 
-License
--------
+## License
 
-BSD
+See LICENSE.md
 
-Author Information
-------------------
+## Author Information
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Ross Davies
