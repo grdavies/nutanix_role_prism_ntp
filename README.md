@@ -23,9 +23,9 @@ This Ansible role sets the NTP server configuration for Prism Element and Prism 
   roles:
     - role: grdavies.nutanix_role_prism_ntp
   vars:
-    prism_ip: 10.38.185.37
-    prism_username: admin
-    prism_password: nx2Tech165!
+    nutanix_host: 10.38.185.37
+    nutanix_username: admin
+    nutanix_password: nx2Tech165!
     prism_ntp_server_list:
       - 0.pool.ntp.org
       - 1.pool.ntp.org
