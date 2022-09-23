@@ -1,4 +1,4 @@
 ---
-# defaults file for nutanix_role_prism_ntp
-  prism_ntp_server_list: []
+# defaults file for nutanix_role_nutanix_ntp
+  nutanix_ntp_server_list: []
   validate_certs: no

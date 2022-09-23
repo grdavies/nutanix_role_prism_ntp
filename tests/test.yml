@@ -7,7 +7,8 @@
     nutanix_host: 10.38.185.37
     nutanix_username: admin
     nutanix_password: nx2Tech165!
-    prism_ntp_server_list:
+    # nutanix_debug: True
+    nutanix_ntp_server_list:
       - 0.pool.ntp.org
       - 1.pool.ntp.org
       - 2.pool.ntp.org
