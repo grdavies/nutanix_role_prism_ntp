@@ -12,7 +12,7 @@ This Ansible role sets the NTP server configuration for Prism Element and Prism 
 | nutanix_password         | yes      |         |                                                                                 | A valid password for the supplied username.                                                                                                        |
 | nutanix_port             | no       | 9440    |                                                                                 | The Prism TCP port.                                                                                                                                |
 | validate_certs           | no       | no      | yes / no                                                                        | Whether to check if Prism UI certificates are valid.                                                                                               |
-| prism_ntp_server_list    | yes      | []      |                                                                                 | Provide a list of NTP servers; ["0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org", "3.pool.ntp.org"].                                                                                 |
+| nutanix_ntp_server_list    | yes      | []      |                                                                                 | Provide a list of NTP servers; ["0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org", "3.pool.ntp.org"].                                                                                 |
 
 ## Dependencies
 
