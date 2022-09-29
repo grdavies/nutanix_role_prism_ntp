@@ -25,7 +25,7 @@
     register: nutanix_ntp_remove_entry
     loop: "{{ nutanix_ntp_current_config.json }}"
 
-  - name: Set NTP server
+  - name: Add NTP server
     uri:
       url: "{{ nutanix_api_v2 }}/cluster/ntp_servers"
       method: POST
